@@ -1,0 +1,108 @@
+﻿@model src.Models.Members
+@{
+    Layout = null;
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Add / Edit Data</h4>
+</div>
+
+<form onsubmit="return SubmitAddEdit(this)">
+    <div class="box-body">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="row">
+            <div class="form-group col-lg-6">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" readonly />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-6">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" readonly />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-6">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" readonly />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-6">
+                <label asp-for="Contact" class="control-label"></label>
+                <input asp-for="Contact" class="form-control" readonly />
+                <span asp-validation-for="Contact" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-6">
+                <label asp-for="MedicalCondition" class="control-label"></label>
+                <input asp-for="MedicalCondition" class="form-control" readonly />
+                <span asp-validation-for="MedicalCondition" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-6">
+                <label asp-for="School" class="control-label"></label>
+                <input asp-for="School" class="form-control" readonly />
+                <span asp-validation-for="School" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label asp-for="LockerNumber" class="control-label"></label>
+                    <input asp-for="LockerNumber" class="form-control" readonly />
+                    <span asp-validation-for="LockerNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label asp-for="Status" class="control-label"></label>
+                    <input asp-for="Status" class="form-control" readonly />
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @if (Model.IsStudent == true)
+            {
+                <div class="form-group col-lg-6">
+                    <label asp-for="IsStudent" class="control-label">Regular/Student</label>
+                    <input class="form-control" value="Student" readonly />
+                    @*<span asp-validation-for="IsStudent" class="text-danger"></span>*@
+                </div>
+            }
+            else
+            {
+                <div class="form-group col-lg-6">
+                    <label asp-for="IsStudent" class="control-label">Regular/Student</label>
+                    <input class="form-control" value="Regular" readonly />
+                    @*<span asp-validation-for="IsStudent" class="text-danger"></span>*@
+                </div>
+            }
+            <div class="form-group col-lg-6">
+                <label asp-for="Plan" class="control-label"></label>
+                <input asp-for="Plan" class="form-control" readonly />
+                <span asp-validation-for="Plan" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Remarks" class="control-label"></label>
+            <input asp-for="Remarks" class="form-control" readonly />
+            <span asp-validation-for="Remarks" class="text-danger"></span>
+        </div>
+
+        <div class="box-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+        </div>
+</form>
+<script>
+    Ladda.bind('.btn', { timeout: 1000 });
+</script>
+
+
+

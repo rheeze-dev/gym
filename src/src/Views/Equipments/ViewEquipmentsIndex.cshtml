@@ -1,0 +1,48 @@
+﻿@model src.Models.Equipments
+@{
+    Layout = null;
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Add / Edit Data</h4>
+</div>
+
+<form onsubmit="return SubmitAddEdit(this)">
+    <div class="box-body">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="row">
+            <div class="form-group col-lg-6">
+                <label asp-for="TotalEquipments" class="control-label"></label>
+                <input asp-for="TotalEquipments" class="form-control" readonly />
+                <span asp-validation-for="TotalEquipments" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-6">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" readonly />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+        </div>
+        
+            <div class="form-group">
+                <label asp-for="Remarks" class="control-label"></label>
+                <input asp-for="Remarks" class="form-control" readonly />
+                <span asp-validation-for="Remarks" class="text-danger"></span>
+            </div>
+
+    </div>
+
+    <div class="box-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+    </div>
+</form>
+<script>
+    Ladda.bind('.btn', { timeout: 1000 });
+</script>
+
+
+
